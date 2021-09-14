@@ -1,4 +1,7 @@
+package model;
+
 public class Student {
+
     private int id;
     private String name;
     private String subject;
@@ -26,5 +29,15 @@ public class Student {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    // toString
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id: " + id +
+                "; name: " + name +
+                "; subject: " + subject +
+                "}";
     }
 }
