@@ -6,41 +6,27 @@ import org.junit.jupiter.api.Assertions;
 
 public class StudentTest {
     @Test
-    public void getNameTest() {
+    public void getNameTestWithConstructor() {
         // given
-        Student student1 = new Student();
-        String student1Name = "Lara Miller";
+        Student student1 = new Student(25, "Lara Miller","Law");
         // when
-        student1.setName(student1Name);
+        student1.setName("Laura Miller");
         String actual = student1.getName();
         // then
-        Assertions.assertEquals(student1Name, actual);
+        Assertions.assertEquals("Laura Miller", actual);
     }
+
 
     @Test
-    public void toStringTest() {
+    public void toStringTestWithConstructor() {
         // given
-        Student student2 = new Student();
-        student2.setId(1);
-        student2.setName("Tim Jones");
-        student2.setSubject("Physics");
-        String expected = "Student{id: 1; name: Tim Jones; subject: Physics}";
+        Student student3 = new Student(2, "Mary Summer", "Medicine");
+        String expected = "Student{id: 2; name: Mary Summer; subject: Medicine}";
         // when
-        String actual = student2.toString();
+        String actual = student3.toString();
         // then
         Assertions.assertEquals(expected, actual);
     }
 
 
-/*
-    void testToString() {
-        // given
-        Student student = new Student("Maria", 2001, "English Literature", 123456);
-        String expected = "name: Maria; year of birth: 2001; subject: English Literature; matriculation number: 123456";
-        //when
-        String actual = student.toString();
-        // then
-        Assertions.assertEquals(expected, actual);
-    }
-    */
 }
