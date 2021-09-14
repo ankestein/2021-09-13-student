@@ -46,4 +46,26 @@ public class StudentDBTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
+    @Test
+    public void addStudentTest() {
+        // given
+        Student[] students = {
+                new Student(1, "Anna", "Law"),
+                new Student(2, "Tim", "Medicine"),
+                new Student(3, "Jenny", "Mathematics")
+        };
+        StudentDB studentArray = new StudentDB(students);
+        // when
+        studentArray.addStudent(new Student(4, "Luke", "Physics"));
+        Student[] actual = studentArray.list();
+        // then
+        Assertions.assertArrayEquals(new Student[]{
+                new Student(1, "Anna", "Law"),
+                new Student(2, "Tim", "Medicine"),
+                new Student(3, "Jenny", "Mathematics"),
+                new Student(4, "Luke", "Physics")
+        }, actual);
+    }
+
 }

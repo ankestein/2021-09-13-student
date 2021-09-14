@@ -29,4 +29,12 @@ public class StudentDB {
         return students[randomIndex];
     }
 
+    public void addStudent(Student student){
+        Student[] updatedStudents = new Student[students.length + 1];
+        for (int i = 0; i < students.length; i++) {
+            updatedStudents[i] = students[i];
+        }
+        updatedStudents[updatedStudents.length - 1] = student;
+        students = updatedStudents;
+    }
 }
