@@ -31,16 +31,4 @@ public class StudentTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
-/*
-    void testToString() {
-        // given
-        Student student = new Student("Maria", 2001, "English Literature", 123456);
-        String expected = "name: Maria; year of birth: 2001; subject: English Literature; matriculation number: 123456";
-        //when
-        String actual = student.toString();
-        // then
-        Assertions.assertEquals(expected, actual);
-    }
-    */
 }
