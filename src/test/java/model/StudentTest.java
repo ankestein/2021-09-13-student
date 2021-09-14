@@ -29,4 +29,30 @@ public class StudentTest {
     }
 
 
+
+    @Test
+    public void testEqualsYes() {
+        // given
+        Student studentA = new Student(55, "Leon", "Medicine");
+        Student studentB = new Student(55, "Leon", "Medicine");
+        // when
+        boolean actual = studentA.equals(studentB);
+        // then
+        Assertions.assertTrue(actual);
+        // Assertions.assertEquals(true, actual); // alternative, but assertTrue is more straightforward
+    }
+
+    @Test
+    public void testEqualsNo() {
+        // given
+        Student studentC = new Student(234, "Lara", "Medicine");
+        Student studentD = new Student(7, "Lara", "Medicine");
+        // when
+        boolean actual = studentC.equals(studentD);
+        // then
+        Assertions.assertFalse(actual);
+        // Assertions.assertEquals(false, actual);
+    }
+
+
 }
