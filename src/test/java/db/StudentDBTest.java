@@ -4,6 +4,9 @@ import model.Student;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudentDBTest {
 
     @Test
@@ -12,35 +15,44 @@ public class StudentDBTest {
         Student student1 = new Student(1, "Anna", "Law");
         Student student2 = new Student(2, "Tim", "Medicine");
         Student student3 = new Student(3, "Jenny", "Mathematics");
-        Student[] students = {student1, student2, student3};
-        StudentDB studentArray = new StudentDB(students);
+
+        ArrayList<Student> students = new ArrayList<Student>();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+
+        StudentDB studentDB = new StudentDB(students);
 
         // when
-        Student[] actual = studentArray.list();
+        ArrayList<Student> actual = studentDB.list();
 
         // then
-        Assertions.assertArrayEquals(students, actual);
+        Assertions.assertEquals(students, actual);
 
     }
+
 
 
     @Test
     public void toStringTest() {
         // given
-        Student[] students = {
-                new Student(1, "Anna", "Law"),
-                new Student(2, "Tim", "Medicine"),
-                new Student(3, "Jenny", "Mathematics")
-        };
-        StudentDB studentArray = new StudentDB(students);
-        String expected = "StudentDB{students = [" +
-                "Student{id: 1; name: Anna; subject: Law}, " +
+        Student student1 = new Student(1, "Anna", "Law");
+        Student student2 = new Student(2, "Tim", "Medicine");
+        Student student3 = new Student(3, "Jenny", "Mathematics");
+
+        ArrayList<Student> students = new ArrayList<Student>();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+
+        StudentDB studentDB = new StudentDB(students);
+
+        String expected = "StudentDB{students = [Student{id: 1; name: Anna; subject: Law}, " +
                 "Student{id: 2; name: Tim; subject: Medicine}, " +
-                "Student{id: 3; name: Jenny; subject: Mathematics}" +
-                "]}";
+                "Student{id: 3; name: Jenny; subject: Mathematics}]}";
 
         // when
-        String actual = studentArray.toString();
+        String actual = studentDB.toString();
 
         // then
         Assertions.assertEquals(expected, actual);
@@ -50,22 +62,30 @@ public class StudentDBTest {
     @Test
     public void addStudentTest() {
         // given
-        Student[] students = {
-                new Student(1, "Anna", "Law"),
-                new Student(2, "Tim", "Medicine"),
-                new Student(3, "Jenny", "Mathematics")
-        };
-        StudentDB studentArray = new StudentDB(students);
+        Student student1 = new Student(1, "Anna", "Law");
+        Student student2 = new Student(2, "Tim", "Medicine");
+        Student student3 = new Student(3, "Jenny", "Mathematics");
+
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+
+        StudentDB studentDB = new StudentDB(students);
+
         // when
-        studentArray.addStudent(new Student(4, "Luke", "Physics"));
-        Student[] actual = studentArray.list();
+        studentDB.addStudent(new Student(4, "Luke", "Physics"));
+        ArrayList<Student> actual = studentDB.list();
+
         // then
-        Assertions.assertArrayEquals(new Student[]{
+        Assertions.assertEquals(new ArrayList<Student>(List.of(
                 new Student(1, "Anna", "Law"),
                 new Student(2, "Tim", "Medicine"),
                 new Student(3, "Jenny", "Mathematics"),
                 new Student(4, "Luke", "Physics")
-        }, actual);
+        )), actual);
     }
+
+
 
 }

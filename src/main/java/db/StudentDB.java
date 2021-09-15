@@ -2,17 +2,18 @@ package db;
 
 import model.Student;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StudentDB {
-    private Student[] students;
+    private ArrayList<Student> students;
 
     // constructor
-    public StudentDB(Student[] students){
+    public StudentDB(ArrayList<Student> students){
         this.students = students;
     }
 
-    public Student[] list() {
+    public ArrayList<Student> list() {
         return students;
     }
 
@@ -20,21 +21,20 @@ public class StudentDB {
     public String toString() {
         return "StudentDB{" +
                 "students = " +
-                Arrays.toString(students) +
+                students +
                 "}";
     }
 
     public Student getRandomStudent(){
-        int randomIndex = (int) (Math.random() * students.length);
-        return students[randomIndex];
+        int randomIndex = (int) (Math.random() * students.size());
+        return students.get(randomIndex);
     }
 
+
     public void addStudent(Student student){
-        Student[] updatedStudents = new Student[students.length + 1];
-        for (int i = 0; i < students.length; i++) {
-            updatedStudents[i] = students[i];
-        }
-        updatedStudents[updatedStudents.length - 1] = student;
-        students = updatedStudents;
+        students.add(student);
+
     }
+
+
 }
