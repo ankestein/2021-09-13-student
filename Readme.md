@@ -29,8 +29,8 @@ Schreibe für alle Methoden Tests (bis auf randomStudent() )
 
 **Bonus**: Schreibe eine `add` und eine `remove` Methode, um Studenten hinzuzufügen und zu entfernen
 
+
 ## Exercise 5
 Wednesday 2021-09-15
-
 ### Aufgabe: ArrayList
-Ersetze in deiner StudentDB das Array durch eine ArrayList.
+Ersetze in deiner StudentDB das Array durch eine `ArrayList`.
