@@ -2,57 +2,46 @@ package db;
 
 import model.Student;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class StudentDB {
-    private List<Student> students;
+    private Map<Integer, Student> students = new HashMap<>();
 
     // constructor
-    public StudentDB(List<Student> students){
-        this.students = new ArrayList<>(students);
+    public StudentDB(List<Student> students) {
+        add(students);
     }
 
     public List<Student> list() {
-        return students;
+        return new ArrayList<>(students.values());
     }
 
     @Override
     public String toString() {
         return "StudentDB{" +
-                "students = " +
-                students +
-                "}";
+                "students=" + students +
+                '}';
     }
 
-    public Student getRandomStudent(){
-        int randomIndex = (int) (Math.random() * students.size());
+
+    public Student randomStudent() {
+        double random = Math.random();
+        int randomIndex = (int) (random * students.size());
         return students.get(randomIndex);
     }
 
-
-    public void addStudent(Student student){
-        students.add(student);
-
+    public void add(Student student) {
+        students.put(student.getId(), student);
     }
 
-    public void removeStudent(int studentId) {
-        Student student = findById(studentId);
-        if (student == null) {
-            return;
-        }
-        students.remove(student);
-    }
-
-    private Student findById(int id){
+    public void add(List<Student> students) {
         for (Student student : students) {
-            if (student.getId() == id) {
-                return student;
-            }
-         }
-        return null;
+            add(student);
+        }
     }
 
+    public void remove(int studentId) {
+        students.remove(studentId);
+    }
 
 }
