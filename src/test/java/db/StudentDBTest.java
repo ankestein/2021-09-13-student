@@ -10,7 +10,7 @@ import java.util.List;
 public class StudentDBTest {
 
     @Test
-    public void listTest() {
+    public void testList() {
         // given
         Student student1 = new Student(1, "Anna", "Law");
         Student student2 = new Student(2, "Tim", "Medicine");

@@ -4,16 +4,17 @@ import model.Student;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class StudentDB {
-    private ArrayList<Student> students;
+    private List<Student> students;
 
     // constructor
-    public StudentDB(ArrayList<Student> students){
-        this.students = students;
+    public StudentDB(List<Student> students){
+        this.students = new ArrayList<>(students);
     }
 
-    public ArrayList<Student> list() {
+    public List<Student> list() {
         return students;
     }
 
@@ -34,6 +35,23 @@ public class StudentDB {
     public void addStudent(Student student){
         students.add(student);
 
+    }
+
+    public void removeStudent(int studentId) {
+        Student student = findById(studentId);
+        if (student == null) {
+            return;
+        }
+        students.remove(student);
+    }
+
+    private Student findById(int id){
+        for (Student student : students) {
+            if (student.getId() == id) {
+                return student;
+            }
+         }
+        return null;
     }
 
 
