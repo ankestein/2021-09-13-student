@@ -37,9 +37,15 @@ Ersetze in deiner StudentDB das Array durch eine `ArrayList`.
 
 
 ## Exercise 6
-Thursday 2021-10-16
+Thursday 2021-09-16
 ### Aufgabe: Map
 Ersetzte in deiner StudentDb die Liste durch eine `Map`
   - nur intern sollte eine Map genutzt werden, nach außen hin können wir weiter das List interface zurückgeben (d.h. Konstruktor nimmt eine List entgegen, list Methode gibt `List<Student> weiterhin zurück)
   
 Überlege was für eine Map und was für eine Arraylist spricht
+
+## Exercise 7
+Thursday 2021-09-16
+### Aufgabe: Exceptions
+- Erweitere die `add` Methode der StudentDB um eine Prüfung, ob die id bereits in der Liste vorhanden ist und schmeiße in dem Fall eine Runtime Exception
+- Schreibe einen Test mittels `try` /`catch` der dieses Verhalten überprüft.
