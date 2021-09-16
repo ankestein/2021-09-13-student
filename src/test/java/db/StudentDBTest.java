@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 public class StudentDBTest {
 
@@ -92,5 +93,41 @@ public class StudentDBTest {
         assertEquals(expected, actual);
 
     }
+
+
+    @Test
+    public void testFindById() {
+        // given
+        StudentDB studentDB = new StudentDB(List.of(
+                new Student(1, "Paul"),
+                new Student(2, "Maria")
+        ));
+        Student student = new Student(2, "Maria");
+        Optional<Student> expected = Optional.ofNullable(student);
+
+        // when
+        Optional<Student> actual = studentDB.findById(2);
+
+        // then
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void testFindByNonExistingId() {
+        // given
+        StudentDB studentDB = new StudentDB(List.of(
+                new Student(1, "Paul"),
+                new Student(2, "Maria")
+        ));
+        Optional<Student> expected = Optional.empty();
+
+        // when
+        Optional<Student> actual = studentDB.findById(3);
+
+        // then
+        assertEquals(expected, actual);
+    }
+
 
 }

@@ -49,3 +49,11 @@ Thursday 2021-09-16
 ### Aufgabe: Exceptions
 - Erweitere die `add` Methode der StudentDB um eine Prüfung, ob die id bereits in der Liste vorhanden ist und schmeiße in dem Fall eine Runtime Exception
 - Schreibe einen Test mittels `try` /`catch` der dieses Verhalten überprüft.
+
+
+## Exercise 8
+Thursday 2021-09-16
+### Aufgabe: Optional
+Füge der StudentDB eine `findByID` Methode hinzu, die ein Optional als Rückgabewert hat.
+
+Schreibe einen entsprechenden Test!

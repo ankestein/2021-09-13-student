@@ -48,4 +48,11 @@ public class StudentDB {
         students.remove(studentId);
     }
 
+    public Optional<Student> findById(int id) {
+        Student foundStudent = students.get(id);
+        Optional<Student> foundStudentOptional = Optional.ofNullable(foundStudent);
+        return foundStudentOptional;
+    }
+
+
 }
