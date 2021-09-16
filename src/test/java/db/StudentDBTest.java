@@ -68,4 +68,51 @@ public class StudentDBTest {
         }, actual);
     }
 
+
+    @Test
+    public void testRemove(){
+        //GIVEN
+        Student[] students = {
+                new Student(1, "Anna", "Law"),
+                new Student(2, "Tim", "Medicine"),
+                new Student(3, "Jenny", "Mathematics"),
+        };
+        StudentDB studentDB = new StudentDB(students);
+
+        //WHEN
+        studentDB.remove(2);
+
+        //THEN
+        Student[] actual = studentDB.list();
+        Assertions.assertArrayEquals(new Student[]{
+                new Student(1, "Anna", "Law"),
+                new Student(3, "Jenny", "Mathematics"),
+        }, actual);
+
+    }
+
+    @Test
+    public void testRemoveLastStudent(){
+        //GIVEN
+        Student[] students = {
+                new Student(1, "Anna", "Law"),
+                new Student(2, "Tim", "Medicine"),
+                new Student(3, "Jenny", "Mathematics"),
+        };
+        StudentDB studentDB = new StudentDB(students);
+
+        //WHEN
+        studentDB.remove(3);
+
+        //THEN
+        Student[] actual = studentDB.list();
+        Assertions.assertArrayEquals(new Student[]{
+                new Student(1, "Anna", "Law"),
+                new Student(2, "Tim", "Medicine"),
+        }, actual);
+
+    }
+
+
+
 }

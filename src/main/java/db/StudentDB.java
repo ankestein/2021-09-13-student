@@ -37,4 +37,36 @@ public class StudentDB {
         updatedStudents[updatedStudents.length - 1] = student;
         students = updatedStudents;
     }
+
+    public void remove(int studentId) {
+        if (!containsId(studentId)) {
+            return;
+        }
+        boolean removed = false;
+        Student[] updatedStudents = new Student[students.length - 1];
+
+        for (int i = 0; i < updatedStudents.length; i++) {
+            Student student = students[i];
+            if (student.getId() == studentId) {
+                removed = true;
+            }
+            int readIndex;
+            if (removed) {
+                readIndex = i + 1;
+            } else {
+                readIndex = i;
+            }
+            updatedStudents[i] = students[readIndex];
+        }
+        students = updatedStudents;
+    }
+
+    private boolean containsId(int id) {
+        for (Student student : students) {
+            if (student.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
