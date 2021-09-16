@@ -11,9 +11,17 @@ public class AppMain {
         students.add(new Student(2, "Tim"));
 
         StudentDB studentsDB = new StudentDB(students);
-        studentsDB.add(new Student(1, "Laura"));
+
+        try {
+            studentsDB.add(new Student(1, "Laura"));
+        } catch (RuntimeException e) {
+            // System.out.println(e);
+            // System.err.println(e);
+            e.printStackTrace();
+        }
 
         System.out.println(studentsDB);
+
 
     }
 }
