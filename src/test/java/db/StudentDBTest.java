@@ -16,7 +16,7 @@ public class StudentDBTest {
         Student student2 = new Student(2, "Tim", "Medicine");
         Student student3 = new Student(3, "Jenny", "Mathematics");
 
-        ArrayList<Student> students = new ArrayList<Student>();
+        List<Student> students = new ArrayList<>();
         students.add(student1);
         students.add(student2);
         students.add(student3);
@@ -24,7 +24,7 @@ public class StudentDBTest {
         StudentDB studentDB = new StudentDB(students);
 
         // when
-        ArrayList<Student> actual = studentDB.list();
+        List<Student> actual = studentDB.list();
 
         // then
         Assertions.assertEquals(students, actual);
@@ -75,7 +75,7 @@ public class StudentDBTest {
 
         // when
         studentDB.addStudent(new Student(4, "Luke", "Physics"));
-        ArrayList<Student> actual = studentDB.list();
+        List<Student> actual = studentDB.list();
 
         // then
         Assertions.assertEquals(new ArrayList<Student>(List.of(
@@ -84,6 +84,30 @@ public class StudentDBTest {
                 new Student(3, "Jenny", "Mathematics"),
                 new Student(4, "Luke", "Physics")
         )), actual);
+    }
+
+
+    @Test
+    public void removeStudentTest() {
+        //GIVEN
+        StudentDB studentDB = new StudentDB(List.of(
+                new Student(1, "Anna", "Law"),
+                new Student(2, "Tim", "Medicine"),
+                new Student(3, "Jenny", "Mathematics")
+        ));
+
+        //WHEN
+        studentDB.removeStudent(2);
+
+        //THEN
+        List<Student> actual = studentDB.list();
+        List<Student> expected = new ArrayList<>(List.of(
+                new Student(1, "Anna", "Law"),
+                new Student(3, "Jenny", "Mathematics")
+
+        ));
+        Assertions.assertEquals(expected, actual);
+
     }
 
 
