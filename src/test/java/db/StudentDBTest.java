@@ -54,6 +54,25 @@ public class StudentDBTest {
     }
 
     @Test
+    public void testAddException() {
+        //GIVEN
+        StudentDB studentDB = new StudentDB(List.of(
+                new Student(1, "Paul"),
+                new Student(2, "Maria")
+        ));
+
+        try {
+            //WHEN
+            studentDB.add(new Student(2, "Maria"));
+            fail();
+        } catch (RuntimeException e) {
+            String actual = e.getMessage();
+            String expected = "Student already exists: id 2";
+            assertEquals(expected, actual);
+        }
+    }
+
+    @Test
     public void testRemove() {
         //GIVEN
         StudentDB studentDB = new StudentDB(List.of(
