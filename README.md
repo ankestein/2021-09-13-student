@@ -34,3 +34,12 @@ Schreibe für alle Methoden Tests (bis auf randomStudent() )
 Wednesday 2021-09-15
 ### Aufgabe: ArrayList
 Ersetze in deiner StudentDB das Array durch eine `ArrayList`.
+
+
+## Exercise 6
+Thursday 2021-10-16
+### Aufgabe: Map
+Ersetzte in deiner StudentDb die Liste durch eine `Map`
+  - nur intern sollte eine Map genutzt werden, nach außen hin können wir weiter das List interface zurückgeben (d.h. Konstruktor nimmt eine List entgegen, list Methode gibt `List<Student> weiterhin zurück)
+  
+Überlege was für eine Map und was für eine Arraylist spricht
