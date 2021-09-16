@@ -31,6 +31,9 @@ public class StudentDB {
     }
 
     public void add(Student student) {
+        if (this.students.containsKey(student.getId())) {
+            throw new RuntimeException("Student already exists: id " + student.getId());
+        }
         students.put(student.getId(), student);
     }
 
@@ -38,6 +41,7 @@ public class StudentDB {
         for (Student student : students) {
             add(student);
         }
+
     }
 
     public void remove(int studentId) {
