@@ -54,7 +54,7 @@ public class StudentDBTest {
     }
 
     @Test
-    public void testAddException() {
+    public void testAddExistingStudentException() {
         //GIVEN
         StudentDB studentDB = new StudentDB(List.of(
                 new Student(1, "Paul"),
@@ -64,7 +64,7 @@ public class StudentDBTest {
         try {
             //WHEN
             studentDB.add(new Student(2, "Maria"));
-            fail();
+            fail("Exception not thrown! A duplicate student could be added (or test data are flawed)"); // If code can run until this line, the Unit test will fail/won't work/will be red
         } catch (RuntimeException e) {
             String actual = e.getMessage();
             String expected = "Student already exists: id 2";
